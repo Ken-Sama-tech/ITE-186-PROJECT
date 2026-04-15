@@ -1,0 +1,18 @@
+package src;
+
+import javax.swing.JFrame;
+
+import src.components.LoginPanel;
+
+public class App extends JFrame {
+    public App() {
+
+        setTitle("Window ni Ken");
+        add(new LoginPanel());
+        setSize(500, 600);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+}
