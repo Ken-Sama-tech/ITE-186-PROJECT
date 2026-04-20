@@ -153,6 +153,12 @@ public class EditAccount extends JPanel {
     }
 
     private void handleDelete(User user) {
+
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if (!new ConfirmationDialog(frame, "Delete user", "Are you sure you want to delete this user?").isConfirmed())
+            return;
+
         ResponseObject response = UserDomain.deleteUser(user.studentId);
 
         if (response.success) {

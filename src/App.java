@@ -7,7 +7,7 @@ import src.components.LoginPanel;
 public class App extends JFrame {
     public App() {
 
-        setTitle("Window ni Ken");
+        setTitle("AT 1.0");
         add(new LoginPanel());
         setSize(500, 600);
         setLocationRelativeTo(null);

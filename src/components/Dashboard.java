@@ -31,6 +31,10 @@ public class Dashboard extends JPanel {
 
         JButton mark = new JButton("Mark Attendance");
         mark.addActionListener(e -> {
+            JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+            if (!new ConfirmationDialog(frame, "Mark Attendance", "Mark todays attendance?").isConfirmed())
+                return;
             user.markAttendance();
             JOptionPane.showMessageDialog(null, "Attendance Marked");
         });
@@ -53,6 +57,10 @@ public class Dashboard extends JPanel {
 
         logout.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            ConfirmationDialog cd = new ConfirmationDialog(frame, "Logout", "You sure you want to logout?");
+
+            if (!cd.isConfirmed())
+                return;
             frame.setContentPane(new LoginPanel());
             frame.revalidate();
             frame.repaint();

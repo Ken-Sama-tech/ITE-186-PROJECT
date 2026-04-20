@@ -33,6 +33,11 @@ public class CreateAccount extends JPanel {
         JButton create = new JButton("Create");
         create.addActionListener(e -> {
 
+            JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+            if (!new ConfirmationDialog(frame, "Create User", "Create this user?").isConfirmed())
+                return;
+
             String name = usernameField.getText();
             char[] password = passwordField.getPassword();
             UserRole role = (UserRole) userRoleField.getSelectedItem();
@@ -44,7 +49,6 @@ public class CreateAccount extends JPanel {
 
             if (result.success) {
                 JOptionPane.showMessageDialog(null, result.message);
-                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
                 frame.setContentPane(new ManageAccount(user));
                 frame.revalidate();
                 frame.repaint();
