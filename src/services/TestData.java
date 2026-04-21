@@ -28,7 +28,7 @@ public class TestData {
 
         for (int i = 2; i <= 50; i++) {
             users.put("" + i,
-                    new User("" + i, "ken" + i, "l".toCharArray(), UserRole.USER));
+                    new User("" + i, "ken" + i, "ass".toCharArray(), UserRole.USER));
         }
 
         return users;

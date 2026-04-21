@@ -2,6 +2,7 @@ package src.services;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 import src.enums.UserRole;
 
@@ -54,8 +55,8 @@ public class UserDomain {
         return new AuthenticateUser(true, "Login sucess", users.get(studentId));
     }
 
-    public static LinkedList<User> getUsers() {
-        LinkedList<User> listOfUser = new LinkedList<User>();
+    public static List<User> getUsers() {
+        List<User> listOfUser = new LinkedList<User>();
 
         users.forEach((k, v) -> {
             listOfUser.add(v);

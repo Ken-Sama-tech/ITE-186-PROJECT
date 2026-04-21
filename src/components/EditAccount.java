@@ -2,6 +2,7 @@ package src.components;
 
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -110,7 +111,7 @@ public class EditAccount extends JPanel {
         return wrapper;
     }
 
-    private void refreshTable(LinkedList<User> users) {
+    private void refreshTable(List<User> users) {
         container.removeAll();
         updateHeader();
 
@@ -124,7 +125,7 @@ public class EditAccount extends JPanel {
 
     private void handleNext() {
         int startIndex = (prevStartIndex == 0) ? 11 : prevStartIndex + 10;
-        LinkedList<User> newUsers = getTenUsers(startIndex);
+        List<User> newUsers = getTenUsers(startIndex);
 
         if (newUsers.size() == 0) {
             JOptionPane.showMessageDialog(null, "No next page");
@@ -139,7 +140,7 @@ public class EditAccount extends JPanel {
 
     private void handlePrev() {
         int startIndex = (prevStartIndex == 11) ? 0 : prevStartIndex - 10;
-        LinkedList<User> prevUsers = getTenUsers(startIndex);
+        List<User> prevUsers = getTenUsers(startIndex);
 
         if (prevUsers.size() == 0) {
             JOptionPane.showMessageDialog(null, "No previous page");
@@ -225,9 +226,9 @@ public class EditAccount extends JPanel {
         dialog.setVisible(true);
     }
 
-    private LinkedList<User> getTenUsers(int startIndex) {
-        LinkedList<User> users = UserDomain.getUsers();
-        LinkedList<User> selected = new LinkedList<>();
+    private List<User> getTenUsers(int startIndex) {
+        List<User> users = UserDomain.getUsers();
+        List<User> selected = new LinkedList<>();
 
         if (startIndex > users.size())
             return selected;
