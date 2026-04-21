@@ -39,9 +39,9 @@ public class ViewUsersAttendance extends JPanel {
 
             JButton viewButton = new JButton("View Record");
 
-            TestData.dumpTestAttendanceRecord().forEach(e -> {
-                u.setRecord(e);
-            });
+            // TestData.dumpTestAttendanceRecord().forEach(e -> {
+            // u.setRecord(e);
+            // });
 
             viewButton.addActionListener(e -> {
                 JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);

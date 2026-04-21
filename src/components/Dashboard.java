@@ -6,21 +6,11 @@ import javax.swing.*;
 
 import src.enums.UserRole;
 import src.objects.User;
-import src.services.TestData;
-import src.services.UserDomain;
 
 public class Dashboard extends JPanel {
 
     public Dashboard(User user) {
         setLayout(new GridBagLayout());
-
-        TestData.dumpTestUsers().forEach((k, v) -> {
-            new UserDomain().createUser(k, v.name, v.password, v.role);
-        });
-
-        TestData.dumpTestAttendanceRecord().forEach(e -> {
-            user.setRecord(e);
-        });
 
         JLabel title = new JLabel("Dashboard", JLabel.CENTER);
         title.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));

@@ -20,9 +20,10 @@ import java.awt.Insets;
 
 public class LoginPanel extends JPanel {
     public LoginPanel() {
+
         setLayout(new GridBagLayout());
 
-        JLabel title = new JLabel("Login", JLabel.CENTER);
+        JLabel title = new JLabel("Attendance Tracker", JLabel.CENTER);
         title.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
 
         JLabel studentIdLabel = new JLabel("Student ID:");
