@@ -11,12 +11,12 @@ import src.objects.ResponseObject;
 import src.objects.User;
 
 public class UserDomain {
-
     private static final HashMap<String, User> users = new HashMap<String, User>();
 
     public UserDomain() {
-        users.put("1", new User("1", "admin", "admin".toCharArray(), UserRole.ADMIN));
-
+        if (users.size() == 0 || users.get("1") == null) {
+            users.put("1", new User("1", "admin", "admin".toCharArray(), UserRole.ADMIN));
+        }
     }
 
     public ResponseObject createUser(String studentID, String name, char[] password, UserRole role) {
